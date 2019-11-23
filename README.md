@@ -17,7 +17,7 @@ dpkg -i dep/libpari-gmp3_2.5.0-2ubuntu1_amd64.deb
 dpkg -i dep/Macaulay2-1.6-common.deb
 dpkg -i dep/Macaulay2-1.6-amd64-Linux-Ubuntu-14.04.deb
 unzip dep/bnet_reduction-master.zip -d dep
-tar jxfv dep/boost_1_55_0.tar.bz2 -C dep/bnet_reduction-master/
+tar jxfv dep/boost_1_71_0.tar.bz2 -C dep/bnet_reduction-master/
 cd dep/bnet_reduction-master/
 make clean
 make install
