@@ -7,7 +7,7 @@ steady states in the DrugLogics pipeline.
 ## Install
 
 The installation process for Macalay2 v1.6 (later versions won't work), boost 
-v1.55 and the `BNReduction` script is as follows:
+v1.71 and the `BNReduction` script is as follows:
 
 ```
 git clone https://bitbucket.org/asmundf/druglogics_dep.git
