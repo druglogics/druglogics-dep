@@ -1,16 +1,16 @@
-# druglogics_dep
+# druglogics-dep
 
 This is a repository of the libraries needed to install the [BNReduction tool](https://github.com/alanavc/BNReduction) for computing the steady states in the DrugLogics pipeline.
  Is also includes installation instructions for the *terminal* trapspace computation using [Most Permissive Boolean Networks (MPBNs)](https://github.com/pauleve/mpbn).
 
 ## Install BNReduction
 
-The installation process for Macalay2 v1.6 (later versions won't work), boost v1.71 and the `BNReduction` script is as follows:
+The installation process for Macaulay2 v1.6 (later versions won't work), boost v1.71 and the [BNReduction](https://github.com/druglogics/druglogics-dep/blob/master/BNReduction.sh) script is as follows:
 
 ```
-git clone https://bitbucket.org/asmundf/druglogics_dep.git
+git clone https://github.com/druglogics/druglogics-dep.git
 
-cd druglogics_dep
+cd druglogics-dep
 dpkg -i dep/libpari-gmp3_2.5.0-2ubuntu1_amd64.deb
 dpkg -i dep/Macaulay2-1.6-common.deb
 dpkg -i dep/Macaulay2-1.6-amd64-Linux-Ubuntu-14.04.deb
@@ -21,8 +21,7 @@ make clean
 make install
 ```
 
-To test the `BNReduction` script you can run the `Testing_BNReduction.sh` to 
-see if all tests pass:
+To test the `BNReduction` installation, you can run the `Testing_BNReduction.sh` script inside the `dep/bnet_reduction-master/` direcotry, to see if all tests pass:
 
 ```
 ./Testing_BNReduction.sh
@@ -39,7 +38,7 @@ export BNET_HOME=/pathTo/druglogics_dep/dep/bnet_reduction-master
 echo $BNET_HOME
 ```
 
-There are various ways to set this environment variable permanently and one of them is to write `export BNET_HOME=/path` to a file in `/etc/profile.d/`, e.g. in `/etc/profile.d/bnet.sh`.
+There are various ways to set this environment variable permanently and one of them is to write `export BNET_HOME=/pathTo/druglogics_dep/dep/bnet_reduction-master` to a file in `/etc/profile.d/`, e.g. in `/etc/profile.d/bnet.sh`.
 
 - To significantly reduce the computation time for the steady state calculation, a *reduced version* of the BNReduction script that does not use the M2 library can be used.
 This way though, **either one or no steady states can be found**.
@@ -49,7 +48,7 @@ We have made a new script that supports both execution modes (full and reduced).
 Copy it to the directory stored in the `BNET_HOME` variable:
 
 ```
-# from druglogics_dep dir
+# from druglogics-dep dir
 cp BNReduction.sh $BNET_HOME
 ```
 
@@ -71,7 +70,7 @@ export MPBN_HOME=/pathTo/dir-that-has-the-mpbn-attractors.py
 echo $MPBN_HOME
 ```
 
-There are various ways to set this environment variable permanently and one of them is to write `export MPBN_HOME=/path` to a file in `/etc/profile.d/`, e.g. in `/etc/profile.d/mpbn.sh`.
+There are various ways to set this environment variable permanently and one of them is to write `export MPBN_HOME=/pathTo/dir-that-has-the-mpbn-attractors.py` to a file in `/etc/profile.d/`, e.g. in `/etc/profile.d/mpbn.sh`.
 
 - Copy the script to the directory stored in the `MPBN_HOME` variable: 
 
