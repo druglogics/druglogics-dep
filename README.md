@@ -21,7 +21,7 @@ make clean
 make install
 ```
 
-To test the `BNReduction` installation, you can run the `Testing_BNReduction.sh` script inside the `dep/bnet_reduction-master/` direcotry, to see if all tests pass:
+To test the `BNReduction` installation, you can run the `Testing_BNReduction.sh` script inside the `dep/bnet_reduction-master/` directory, to see if all tests pass:
 
 ```
 ./Testing_BNReduction.sh
