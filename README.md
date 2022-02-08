@@ -1,7 +1,9 @@
 # druglogics-dep
 
 This is a repository of the libraries needed to install the [BNReduction tool](https://github.com/alanavc/BNReduction) for computing the steady states in the DrugLogics pipeline.
- Is also includes installation instructions for the *terminal* trapspace computation using [Most Permissive Boolean Networks (MPBNs)](https://github.com/pauleve/mpbn).
+ Is also includes installation instructions for the *terminal* trapspace computation tool using [Most Permissive Boolean Networks (MPBNs)](https://github.com/pauleve/mpbn).
+
+Apart from the below instructions, you can get some inspiration from this [Dockerfile](https://github.com/druglogics/druglogics-synergy/blob/master/Dockerfile#L41) which installs the aforementioned libraries in Ubuntu `16.04`.
 
 ## Install BNReduction
 
@@ -72,6 +74,8 @@ The above should return the following output:
 00**
 1101
 ```
+
+### DrugLogics-specific installation
 
 To properly use the `mpbn-attractors.py` script in the DrugLogics pipeline do the following:
 
