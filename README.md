@@ -5,13 +5,14 @@ This is a repository of the libraries needed to install the [BNReduction tool](h
 
 ## Install BNReduction
 
-The installation process for Macaulay2 v1.6 (later versions won't work), boost v1.71 and the [BNReduction](https://github.com/druglogics/druglogics-dep/blob/master/BNReduction.sh) script is as follows:
+The installation process for **Macaulay2 v1.6 (later versions won't work)**, boost v1.55 and the [BNReduction](https://github.com/druglogics/druglogics-dep/blob/master/BNReduction.sh) script is as follows:
 
 ```
 git clone https://github.com/druglogics/druglogics-dep.git
 
 cd druglogics-dep
 dpkg -i dep/libpari-gmp3_2.5.0-2ubuntu1_amd64.deb
+# apt-get install liblapack3 -y # if needed only
 dpkg -i dep/Macaulay2-1.6-common.deb
 dpkg -i dep/Macaulay2-1.6-amd64-Linux-Ubuntu-14.04.deb
 unzip dep/bnet_reduction-master.zip -d dep
@@ -34,11 +35,11 @@ To correctly use the `BNReduction` script in the DrugLogics pipeline do the foll
 - Place the location of the bnet directory, containing the `BNReduction.sh` file, in the environment variable *BNET_HOME*:
 
 ```
-export BNET_HOME=/pathTo/druglogics_dep/dep/bnet_reduction-master
+export BNET_HOME=/pathTo/druglogics-dep/dep/bnet_reduction-master
 echo $BNET_HOME
 ```
 
-There are various ways to set this environment variable permanently and one of them is to write `export BNET_HOME=/pathTo/druglogics_dep/dep/bnet_reduction-master` to a file in `/etc/profile.d/`, e.g. in `/etc/profile.d/bnet.sh`.
+There are various ways to set this environment variable permanently and one of them is to write `export BNET_HOME=/pathTo/druglogics-dep/dep/bnet_reduction-master` to a file in `/etc/profile.d/`, e.g. in `/etc/profile.d/bnet.sh`.
 
 - To significantly reduce the computation time for the steady state calculation, a *reduced version* of the BNReduction script that does not use the M2 library can be used.
 This way though, **either one or no steady states can be found**.
@@ -56,10 +57,21 @@ Thus, `./BNReduction.sh file.dat` uses the M2 library but running `./BNReduction
 
 ## Install MPBNs
 
-Please see the respective [GitHub repository](https://github.com/pauleve/mpbn) for installation instructions regarding the implemented Python module that computes attractors (terminal trapspaces) for the Most Permissive Boolean Networks.
+Please see the respective [GitHub repository](https://github.com/pauleve/mpbn) for installation instructions regarding the implemented Python module that computes attractors (terminal trapspaces) for the Most Permissive Boolean Networks (versions `1.2` to `1.6` should work just fine).
 Make sure that `import mpbn` inside a Python interpret works without errors.
 
 The `mpbn-attractors.py` is a python script that takes as input a `.bnet` file and prints it's terminal trapspaces (one per line).
+
+Test installation by running:
+```
+python mpbn-attractors.py model.bnet
+```
+
+The above should return the following output:
+```
+00**
+1101
+```
 
 To properly use the `mpbn-attractors.py` script in the DrugLogics pipeline do the following:
 
@@ -75,6 +87,6 @@ There are various ways to set this environment variable permanently and one of t
 - Copy the script to the directory stored in the `MPBN_HOME` variable: 
 
 ```
-# from druglogics_dep dir
+# from druglogics-dep dir
 cp mpbn-attractors.py $MPBN_HOME
 ```
