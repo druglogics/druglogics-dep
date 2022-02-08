@@ -1,0 +1,6 @@
+targets, factors
+# Model from Klarner, H., Bockmayr, A., & Siebert, H. (2015). Computing maximal and minimal trap spaces of Boolean networks. Natural Computing, 14(4), 535–544. https://doi.org/10.1007/s11047-015-9520-7
+x1, x1 | x2
+x2, x1 & x4
+x3, !x1 & x4
+x4, !x3
